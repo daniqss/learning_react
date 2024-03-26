@@ -1,0 +1,56 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  justify-content: center;
+}
+
+.calculator-screen {
+  width: 100%;
+  height: 3em;
+  font-size: 1.5em;
+  text-align: right;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 7px;
+  border: solid 2px #1a1717;
+  background-color: #ece1e1;
+  color: #252525;
+
+}
+
+.calculator-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
