@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Todo from './components/Todo.jsx'
+import TodoForm from './components/TodoForm.jsx'
 import './App.css'
 
 function App() {
@@ -13,37 +14,23 @@ function App() {
     }
   }, [])
 
-  const addTodo = (todo) => {
-    setTodos([...todos, todo])
-    localStorage.setItem('todos', JSON.stringify([...todos, todo]))
-  }
-
   const removeTodo = () => {
     setTodos(todos.slice(0, -1))
-    localStorage.setItem('todos', JSON.stringify(todos.slice(0, -1)))
+    const localTodos = JSON.parse(localStorage.getItem('todos'))
+    const updatedTodos = localTodos.slice(0, -1)
+    localStorage.setItem('todos', JSON.stringify(updatedTodos))
   }
 
   return (
     <>
       <h1>Todo App</h1>
       <button onClick={removeTodo}>Remove</button>
-      <form
-        onSubmit = { (e) => {
-          e.preventDefault()
-          addTodo({
-            id: todos.length + 1,
-            title: e.target.elements.todo.value,
-          })
-          e.target.reset()
-        }}
-      >
-        <input type="text" name="todo" />
-        <button type="submit" >Add</button>
-      </form>
+
+      <TodoForm setTodos={setTodos} />
 
       <section>
         {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo.title}/>
+            <Todo key={todo.id} todo={todo.title} />
         ))}
       </section>
     </>

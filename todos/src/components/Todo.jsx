@@ -5,12 +5,10 @@ export default function Todo({ todo }) {
 
     return (
         <section>
-            {todo.key}
-            <h2>{todo}</h2>
+                <p>{todo}</p>
         </section>
     )
 }
-
 Todo.propTypes = {
-    todo: PropTypes.string.isRequired
+    todo: PropTypes.string.isRequired,
 }
