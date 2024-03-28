@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Todo from './components/Todo.jsx'
 import TodoForm from './components/TodoForm.jsx'
 import './App.css'
+import TodoButton from './components/TodoButton.jsx'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -14,16 +15,22 @@ function App() {
     }
   }, [])
 
-  const removeTodos = () => {
+  const removeAllTodos = () => {
     setTodos(todos.filter(() => false))
     localStorage.setItem('todos', JSON.stringify([]))
+  }
+
+  const removeTodo = (id) => {
+    const updatedTodos = todos.filter(todo => todo.id !== id);
+    setTodos(updatedTodos);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
   }
 
   return (
     <>
       <header>
         <h1>Todos</h1>
-        <button onClick={removeTodos}>Remove All</button>
+        <TodoButton handleClick={removeAllTodos} buttonStyle={'remove-button'}>Remove all</TodoButton>
       </header>
 
       <main>
@@ -31,7 +38,7 @@ function App() {
 
         <section>
           {todos.map((todo) => (
-              <Todo key={todo.id} todo={todo.title} />
+              <Todo key={todo.id} todo={todo.title} onRemove={() => removeTodo(todo.id)}/>
           ))}
         </section>
       </main>
