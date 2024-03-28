@@ -13,3 +13,27 @@
     margin-left: 5px;
   }
 }
+
+.todo-card:hover {
+  background-color: #555353;
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.completedCheck {
+  margin-right: 1rem;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 4px; 
+  cursor: pointer;
+}
+
+.completedCheck:checked + p {
+  text-decoration: line-through;
+  color: #888;
+}

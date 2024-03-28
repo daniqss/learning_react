@@ -26,6 +26,17 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(updatedTodos));
   }
 
+  const editTodo = (id, updatedTodo) => {
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return updatedTodo
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
+    localStorage.setItem('todos', JSON.stringify(updatedTodos))
+  }
+
   return (
     <>
       <header>
@@ -38,7 +49,12 @@ function App() {
 
         <section>
           {todos.map((todo) => (
-              <Todo key={todo.id} todo={todo.title} onRemove={() => removeTodo(todo.id)}/>
+              <Todo 
+                key={todo.id} todo={todo} 
+                handleCheck = {() => editTodo(todo.id, { ...todo, completed: !todo.completed})}
+                handleEdit = {() => editTodo(todo.id, { ...todo, completed: !todo.title})}
+                handleRemove = {() => removeTodo(todo.id)}
+              />
           ))}
         </section>
       </main>
