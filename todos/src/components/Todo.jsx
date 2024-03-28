@@ -7,7 +7,12 @@ export default function Todo({ todo, handleCheck, handleEdit, handleRemove}) {
     return (
         <section className='todo-card'>
             <div className='right-side'>
-                <input type='checkbox' className='completedCheck' onClick={handleCheck}/>
+                <input 
+                    type='checkbox' 
+                    defaultChecked={todo.completed} 
+                    className='completedCheck' 
+                    onClick={() => handleCheck({...todo, completed: !todo.completed})}
+                />
                 <p>{todo.title}</p>
             </div>
             <div>

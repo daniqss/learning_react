@@ -51,8 +51,8 @@ function App() {
           {todos.map((todo) => (
               <Todo 
                 key={todo.id} todo={todo} 
-                handleCheck = {() => editTodo(todo.id, { ...todo, completed: !todo.completed})}
-                handleEdit = {() => editTodo(todo.id, { ...todo, completed: !todo.title})}
+                handleCheck = {(updatedTodo) => editTodo(todo.id, updatedTodo)}
+                handleEdit = {(updatedTodo) => editTodo(todo.id, updatedTodo)}
                 handleRemove = {() => removeTodo(todo.id)}
               />
           ))}
