@@ -14,25 +14,27 @@ function App() {
     }
   }, [])
 
-  const removeTodo = () => {
-    setTodos(todos.slice(0, -1))
-    const localTodos = JSON.parse(localStorage.getItem('todos'))
-    const updatedTodos = localTodos.slice(0, -1)
-    localStorage.setItem('todos', JSON.stringify(updatedTodos))
+  const removeTodos = () => {
+    setTodos(todos.filter(() => false))
+    localStorage.setItem('todos', JSON.stringify([]))
   }
 
   return (
     <>
-      <h1>Todo App</h1>
-      <button onClick={removeTodo}>Remove</button>
+      <header>
+        <h1>Todos</h1>
+        <button onClick={removeTodos}>Remove All</button>
+      </header>
 
-      <TodoForm setTodos={setTodos} />
+      <main>
+        <TodoForm setTodos={setTodos} />
 
-      <section>
-        {todos.map((todo) => (
-            <Todo key={todo.id} todo={todo.title} />
-        ))}
-      </section>
+        <section>
+          {todos.map((todo) => (
+              <Todo key={todo.id} todo={todo.title} />
+          ))}
+        </section>
+      </main>
     </>
   )
 }

@@ -1,6 +1,57 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  min-width: 320px;
+  max-width: 768px;
+  width: 40%;
+  margin: auto;
+}
+
+header {
+  position: 
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+  padding: 0 1.5em 0 1.5em;
+}
+
+button {
+  /* margin-bottom: 10px; */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form {
+  padding: 0.6em 0em 0.6em 0em;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+input[type="text"]:hover {
+  border-color: #1e90ff;
+}
+
+input[type="text"]:focus {
+  border-color: #0b7ff3;
+}
+
+h1 {
+  margin: 10px;
 }

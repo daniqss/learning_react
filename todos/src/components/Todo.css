@@ -1,0 +1,15 @@
+.todo-card {
+  background-color: #3d3a3a;
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  display: flex;
+  space-between: space-between;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  button + button {
+    margin-left: 5px;
+  }
+}
