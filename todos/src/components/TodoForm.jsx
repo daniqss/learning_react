@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
-import TodoButton from './TodoButton';
+import PropTypes from 'prop-types'
+import { v4 as uuidv4 } from 'uuid';
+import TodoButton from './TodoButton'
 
 export default function TodoForm({ setTodos }) {
   const addTodo = (todoTitle) => {
     const newTodo = {
-      id: (new Date().getTime()).toString(),
+      id: uuidv4(),
       title: todoTitle,
       completed: false
     }
