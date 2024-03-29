@@ -4,7 +4,7 @@ import TodoForm from './components/TodoForm.jsx'
 import './App.css'
 import TodoButton from './components/TodoButton.jsx'
 
-function App() {
+export default function App() {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
@@ -61,5 +61,3 @@ function App() {
     </>
   )
 }
-
-export default App

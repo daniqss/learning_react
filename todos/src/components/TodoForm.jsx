@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import TodoButton from './TodoButton';
 
-const TodoForm = ({ setTodos }) => {
+export default function TodoForm({ setTodos }) {
   const addTodo = (todoTitle) => {
     const newTodo = {
       id: (new Date().getTime()).toString(),
@@ -43,5 +43,3 @@ const TodoForm = ({ setTodos }) => {
 TodoForm.propTypes = {
   setTodos: PropTypes.func.isRequired,
 }
-
-export default TodoForm;
