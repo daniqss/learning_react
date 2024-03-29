@@ -3,7 +3,7 @@ import TodoButton from './TodoButton';
 import './Todo.css';
 
 export default function Todo({ todo, handleCheck, handleEdit, handleRemove}) {
-
+    
     return (
         <section className='todo-card'>
             <div className='right-side'>
