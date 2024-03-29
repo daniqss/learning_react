@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Todo from './components/Todo.jsx'
+import TodoList from './components/TodoList.jsx'
 import TodoForm from './components/TodoForm.jsx'
 import './App.css'
 import TodoButton from './components/TodoButton.jsx'
@@ -46,17 +46,7 @@ export default function App() {
 
       <main>
         <TodoForm setTodos={setTodos} />
-
-        <section>
-          {todos.map((todo) => (
-              <Todo 
-                key={todo.id} todo={todo} 
-                handleCheck = {(updatedTodo) => editTodo(todo.id, updatedTodo)}
-                handleEdit = {(updatedTodo) => editTodo(todo.id, updatedTodo)}
-                handleRemove = {() => removeTodo(todo.id)}
-              />
-          ))}
-        </section>
+        <TodoList todos={todos} editTodo={editTodo} removeTodo={removeTodo} />
       </main>
     </>
   )
