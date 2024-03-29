@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-function App() {
+export default function App() {
   const [display, setDisplay] = useState('0')
   const [currentValue, setCurrentValue] = useState('')
   const [operator, setOperator] = useState(null)
@@ -87,5 +87,3 @@ function App() {
     </>
   )
 }
-
-export default App
