@@ -1,0 +1,12 @@
+import Game2048 from './components/Game2048.jsx'
+import './App.css'
+
+function App() {
+  return (
+    <>
+      <Game2048 boardSize={2.4}/>
+    </>
+  )
+}
+
+export default App
