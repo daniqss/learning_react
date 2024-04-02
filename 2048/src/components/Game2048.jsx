@@ -27,16 +27,18 @@ function Game2048({ boardSize }) {
   }
 
   return (
-    <section>
-        <div>
-            <h1>2048</h1>
-            <Data2048 title='Score'>{score}</Data2048>
-            <Data2048 title='Best'>{personalBest}</Data2048>
-        </div>
-        <div>
+    <section className="container-2048">
+        <header className="header-2048">
+          <h1>2048</h1>
+            <div style={{ float: "left", margin: "10px 0 0 0" }}>
+              <Data2048 title='Score'>{score}</Data2048>
+              <Data2048 title='Best'>{personalBest}</Data2048>
+            </div>
+        </header>
+        <section>
             <Button2048 onClick={restartGame}>Restart</Button2048>
             <Button2048 onClick={undoMovement}>Undo</Button2048>
-        </div>
+        </section>
         <Board2048 size={boardSize}/>
     </section>
   );

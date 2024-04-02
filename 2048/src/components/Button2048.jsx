@@ -1,8 +1,9 @@
 import PropTypes from "prop-types"
+import './2048.css'
 
 function Button2048({children, onClick}) {
     return (
-        <button className='data-2048 info-2048' onClick={onClick}>
+        <button className='button-2048' onClick={onClick}>
             {children}
         </button>
     )
