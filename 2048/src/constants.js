@@ -13,3 +13,10 @@ export const CELLS_COLORS = {
     '512': '#ecc750',
     '1024': '#d9b401',
 }
+
+export const DIRECTIONS = {
+    UP: 'UP',
+    DOWN: 'DOWN',
+    LEFT: 'LEFT',
+    RIGHT: 'RIGHT'
+}
