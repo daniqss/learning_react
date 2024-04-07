@@ -1,66 +1,65 @@
 :root {
-    --board-background: #BBADA0;
-    --cell-background: #CDC1B4;
-    --button-background: #8F7A66;
-    --info-background: #BBADA0;
-    --dark-text: #776E65;
-    --light-text: #F9F6F2;
+  --board-background: #bbada0;
+  --cell-background: #cdc1b4;
+  --button-background: #8f7a66;
+  --info-background: #bbada0;
+  --dark-text: #776e65;
+  --light-text: #f9f6f2;
 }
 
 .container-2048 {
-    width: 500px;
-    margin: 0 auto; 
+  width: 500px;
+  margin: 0 auto;
 }
 
 .header-2048 {
-    display: inline-block;
+  display: inline-block;
 }
 
 .button-2048 {
-    display: inline-block;
-    background: var(--button-background);
-    border-radius: 3px;
-    padding: 0 20px;
-    text-decoration: none;
-    color: #f9f6f2;
-    height: 40px;
-    line-height: 42px;
-    display: block;
-    text-align: center;
-    float: right;
-    margin-top: 10px;
+  display: inline-block;
+  background: var(--button-background);
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
+  float: right;
+  margin-top: 10px;
 }
 
 .data-2048 {
-        position: relative;
-        display: inline-block;
-        background: #bbada0;
-        padding: 15px 25px;
-        font-size: 20px;
-        height: 25px;
-        line-height: 47px;
-        font-weight: bold;
-        border-radius: 3px;
-        color: white;
-        margin-top: 8px;
-        text-align: center;
+  position: relative;
+  display: inline-block;
+  background: #bbada0;
+  padding: 15px 25px;
+  font-size: 20px;
+  height: 25px;
+  line-height: 47px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  margin-top: 8px;
+  text-align: center;
 }
 
 .board-2048 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    margin-top: 20px;
-    background-color: var(--board-background);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
+  background-color: var(--board-background);
 }
 
 .cell-2048 {
-    background-color: var(--cell-background);
-    border-radius: 3px;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    color: var(--dark-text);
+  background-color: var(--cell-background);
+  border-radius: 3px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--dark-text);
 }
-
