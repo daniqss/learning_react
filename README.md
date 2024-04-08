@@ -1,7 +1,7 @@
 # Learning React 
 Some projects to learn the basics of react
 
-# Proyects 
+## Proyects 
 - [Simple Calculator](calculator/src/App.jsx)
 - [Todo List](todos/src/App.jsx)
 
