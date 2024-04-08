@@ -55,6 +55,7 @@
 }
 
 .cell-2048 {
+  user-select: none;
   background-color: var(--cell-background);
   border-radius: 3px;
   padding: 20px;

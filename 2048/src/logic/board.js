@@ -1,50 +1,71 @@
 export const update = (board, getDirection) => {
-  const movementResult = {
-    updatedBoard: board,
-    movementPoints: 0
-  }
+  const updatedBoard = board.map((i) => i)
 
-  board.map((row, i) =>
-    row.map((element, j) => {
-      if (element === 0) return element
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board.length; j++) {
+      if (board[i][j] === 0) continue
 
       let x = i
       let y = j
-      let { i: nextX, j: nextY } = getDirection(x, y)
+      let nextX = x
+      let nextY = y
 
-      if (
-        nextX < 0 ||
-        nextX >= board.length ||
-        nextY < 0 ||
-        nextY >= board.length
-      ) {
-        return element
+      while (true) {
+        ;({ i: nextX, j: nextY } = getDirection(x, y))
+
+        if (
+          nextX < 0 ||
+          nextX >= board.length ||
+          nextY < 0 ||
+          nextY >= board.length
+        )
+          break
+        console.log('nextX:', nextX)
+        console.log('nextY:', nextY)
+        console.log('board[nextX][nextY]:', board[nextX][nextY])
+        if (board[nextX][nextY] === 0) {
+          updatedBoard[nextX][nextY] = board[x][y]
+          updatedBoard[x][y] = 0
+        } else if (board[nextX][nextY] === board[x][y]) {
+          updatedBoard[nextX][nextY] *= 2
+          updatedBoard[x][y] = 0
+        } else break
+
+        x = nextX
+        y = nextY
       }
+    }
+  }
 
-      if (board[nextX][nextY] === 0) {
-        board[nextX][nextY] = element
-        board[x][y] = 0
-        movementResult.updatedBoard = board
-      } else if (board[nextX][nextY] === element) {
-        board[nextX][nextY] = element * 2
-        board[x][y] = 0
-        movementResult.movementPoints += element * 2
-        movementResult.updatedBoard = board
-      }
+  const emptyCells = findEmptyCells(updatedBoard)
+  return addNewCell(emptyCells, updatedBoard, false)
+}
 
+export const restart = (board) => {
+  const emptyCells = findEmptyCells(board)
+  return addNewCell(emptyCells, board, true)
+}
+
+const addNewCell = (emptyCells, board, restartingBoard) => {
+  const { x, y } = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+
+  return board.map((row, i) =>
+    row.map((element, j) => {
+      if (x === i && y === j) return 2
+      if (restartingBoard === true) return 0
       return element
     })
   )
 }
 
-export const restart = (board) => {
-  const x = Math.floor(Math.random() * board.length)
-  const y = Math.floor(Math.random() * board.length)
+const findEmptyCells = (board) => {
+  const emptyCells = []
 
-  return board.map((row, i) =>
-    row.map((element, j) => {
-      if (x === i && y === j) return 2
-      return 0
-    })
-  )
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board.length; j++) {
+      if (board[i][j] === 0) emptyCells.push({ x: i, y: j })
+    }
+  }
+
+  return emptyCells
 }
