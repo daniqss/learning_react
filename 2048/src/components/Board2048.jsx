@@ -53,6 +53,12 @@ function Board2048({ size, updateGame }) {
         return (
           <div key={i} className='row-2048'>
             {row.map((element, j) => {
+              if (element === 0)
+                return (
+                  <div key={j} className='cell-2048'>
+                    &nbsp;
+                  </div>
+                )
               return <Cell2048 key={j} value={element} />
             })}
           </div>

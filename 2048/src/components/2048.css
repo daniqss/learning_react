@@ -1,6 +1,6 @@
 :root {
   --board-background: #bbada0;
-  --cell-background: #cdc1b4;
+  --cell-background: #ABAAAB;
   --button-background: #8f7a66;
   --info-background: #bbada0;
   --dark-text: #776e65;
@@ -51,6 +51,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   margin-top: 20px;
+  padding: 20px;
   background-color: var(--board-background);
 }
 
